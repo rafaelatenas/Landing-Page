@@ -15,26 +15,96 @@
 
 
     <main>
+        <header>
+            <div class="components-header">
+                <img class="logo-atenas" src="./landing/images/ATS_LOGO.png" alt="Logo Atenas">
+                <div class="content-user">
+
+                </div>
+            </div>
+        </header>
         <section class="container">
             <article class="card-carousel">
-                <div class="card" id="1">
-                    <div class="image-container"></div>
-                    <p>HOME PANTRY</p>
-                </div>
-                <div class="card" id="2">
-                    <div class="image-container"></div>
-                    <p>RETAIL SCANNING</p>
-                </div>
-                <div class="card" id="3">
-                    <div class="image-container"></div>
-                    <p>EXECUTION</p>
+                <div class="card" id="scanning">
+                    <div class="image-container">
+                        <img src="./landing/images/ATS_Logo-Retail-Scanning.png" alt="Retail Scanning">
+                    </div>
+
+                    <img class="heart" onclick="incrementClick1()" id="menuRSc" src="./landing/favicon/angle-down-solid.svg" alt="Show Menu">
+
                 </div>
 
+                <div class="card" id="home_pantry">
+                    <div class="image-container">
+                        <img src="./landing/images/ATS_Logo-Home-Pantry.png" alt="Home Pantry">
+                    </div>
+                    <img onclick="incrementClick2()" id="menuHP" src="./landing/favicon/angle-down-solid.svg" alt="Show Menu">
+                </div>
+
+                <div class="card" id="execution">
+                    <div class="image-container">
+                        <img src="./landing/images/ATS_Logo-Execution.png" alt="Execution">
+                    </div>
+                    <img onclick="incrementClick3()" id="menuEx" src="./landing/favicon/angle-down-solid.svg" alt="Show Menu">
+
+                </div>
             </article>
 
+            <aside style="display: none;" class="deplegable" id="desplegableRSc">
+                <div class="container-desplegable">
+                    <p>Reporte Express</p>
+                    <hr>
+                    <p>Reporte Semanal</p>
+                    <hr>
+                    <p>Reporte Mensual</p>
+                    <hr>
+                    <p>Money Market</p>
+                    <hr>
+                    <p>Prime Store</p>
+                    <hr>
+                </div>
+            </aside>
+
+            <aside style="display: none;" class="deplegable" id="desplegableHP">
+                <div class="container-desplegable">
+                    <p>Reporte Express</p>
+                    <hr>
+                    <p>Reporte Semanal</p>
+                    <hr>
+                    <p>Reporte Mensual</p>
+                    <hr>
+                </div>
+            </aside>
+
+            <aside style="display: none;" class="deplegable" id="desplegableEx">
+                <div class="container-desplegable">
+                    <p>Censo</p>
+                    <hr>
+                    <p>POV</p>
+                    <hr>
+                </div>
+            </aside>
+
         </section>
+        <footer>
+            <div class="bar-user">
+                <img src="" alt="">
+            </div>
+            <div class="complementary-buttons">
+                <div id="arrow-left">
+                    <img src="./landing/favicon/angle-left-solid.svg" alt="Left">
+                </div>
+                <div class="buttons-of-services">
+                </div>
+                <div id="arrow-right">
+                    <img src="./landing/favicon/angle-right-solid.svg" alt="Right">
+                </div>
+            </div>
+        </footer>
     </main>
     <script src="./landing/JS/index.js"></script>
+    <script src="./landing/JS/carousel.js"></script>
+
 </body>
 
 </html>

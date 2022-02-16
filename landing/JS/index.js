@@ -1,328 +1,73 @@
-const cardsContainer = document.querySelector(".card-carousel");
-const cardsController = document.querySelector(
-    ".card-carousel + .card-controller"
-);
+//Redireccionar al hacer click en los servicios principales
 
-class DraggingEvent {
-    constructor(target = undefined) {
-        this.target = target;
-    }
+var Home_Pantry = document.getElementById('home_pantry');
+var Retail_Scanning = document.getElementById('scanning');
+var Execution = document.getElementById('execution');
 
-    event(callback) {
-        let handler;
+Home_Pantry.addEventListener('click', () => {
+    window.location.href = "#"
+});
+Retail_Scanning.addEventListener('click', () => {
+    window.location.href = "#"
+});
+Execution.addEventListener('click', () => {
+    window.location.href = "#"
+})
 
-        this.target.addEventListener("mousedown", (e) => {
-            e.preventDefault();
+var menuHP = document.getElementById('menuHP');
+var menuRSc = document.getElementById('menuRSc');
+var menuEx = document.getElementById('menuEx');
 
-            handler = callback(e);
 
-            window.addEventListener("mousemove", handler);
+var counterVal2 = 0;
+var updateDisplay2;
 
-            document.addEventListener("mouseleave", clearDraggingEvent);
-
-            window.addEventListener("mouseup", clearDraggingEvent);
-
-            function clearDraggingEvent() {
-                window.removeEventListener("mousemove", handler);
-                window.removeEventListener("mouseup", clearDraggingEvent);
-
-                document.removeEventListener("mouseleave", clearDraggingEvent);
-
-                handler(null);
-            }
-        });
-
-        this.target.addEventListener("touchstart", (e) => {
-            handler = callback(e);
-
-            window.addEventListener("touchmove", handler);
-
-            window.addEventListener("touchend", clearDraggingEvent);
-
-            document.body.addEventListener("mouseleave", clearDraggingEvent);
-
-            function clearDraggingEvent() {
-                window.removeEventListener("touchmove", handler);
-                window.removeEventListener("touchend", clearDraggingEvent);
-
-                handler(null);
-            }
-        });
-    }
-
-    // Get the distance that the user has dragged
-    getDistance(callback) {
-        function distanceInit(e1) {
-            let startingX, startingY;
-
-            if ("touches" in e1) {
-                startingX = e1.touches[0].clientX;
-                startingY = e1.touches[0].clientY;
-            } else {
-                startingX = e1.clientX;
-                startingY = e1.clientY;
-            }
-
-            return function(e2) {
-                if (e2 === null) {
-                    return callback(null);
-                } else {
-                    if ("touches" in e2) {
-                        return callback({
-                            x: e2.touches[0].clientX - startingX,
-                            y: e2.touches[0].clientY - startingY
-                        });
-                    } else {
-                        return callback({
-                            x: e2.clientX - startingX,
-                            y: e2.clientY - startingY
-                        });
-                    }
-                }
-            };
-        }
-
-        this.event(distanceInit);
-    }
+function incrementClick2() {
+    updateDisplay2 = ++counterVal2;
 }
 
-class CardCarousel extends DraggingEvent {
-    constructor(container, controller = undefined) {
-        super(container);
-
-        // DOM elements
-        this.container = container;
-        this.controllerElement = controller;
-        this.cards = container.querySelectorAll(".card");
-
-        // Carousel data
-        this.centerIndex = (this.cards.length - 1) / 2;
-        this.cardWidth =
-            (this.cards[0].offsetWidth / this.container.offsetWidth) * 100;
-        this.xScale = {};
-
-        // Resizing
-        window.addEventListener("resize", this.updateCardWidth.bind(this));
-
-        if (this.controllerElement) {
-            this.controllerElement.addEventListener(
-                "keydown",
-                this.controller.bind(this)
-            );
-        }
-
-        // Initializers
-        this.build();
-
-        // Bind dragging event
-        super.getDistance(this.moveCards.bind(this));
+menuHP.addEventListener('click', () => {
+    console.log('clcik')
+    if (updateDisplay2 % 2) {
+        document.getElementById('desplegableHP').style.display = "block";
+        menuHP.style.transform = "rotate(180deg)"
+    } else {
+        document.getElementById('desplegableHP').style.display = "none"
+        menuHP.style.transform = "rotate(0deg)"
     }
+});
+var counterVal1 = 0;
+var updateDisplay1;
 
-    updateCardWidth() {
-        this.cardWidth =
-            (this.cards[0].offsetWidth / this.container.offsetWidth) * 100;
-
-        this.build();
-    }
-
-    build(fix = 0) {
-        for (let i = 0; i < this.cards.length; i++) {
-            const x = i - this.centerIndex;
-            const scale = this.calcScale(x);
-            const scale2 = this.calcScale2(x);
-            const zIndex = -Math.abs(i - this.centerIndex);
-
-            const leftPos = this.calcPos(x, scale2);
-
-            this.xScale[x] = this.cards[i];
-
-            this.updateCards(this.cards[i], {
-                x: x,
-                scale: scale,
-                leftPos: leftPos,
-                zIndex: zIndex
-            });
-        }
-    }
-
-    controller(e) {
-        const temp = {...this.xScale };
-
-        if (e.keyCode === 39) {
-            // Left arrow
-            for (let x in this.xScale) {
-                const newX =
-                    parseInt(x) - 1 < -this.centerIndex ?
-                    this.centerIndex :
-                    parseInt(x) - 1;
-
-                temp[newX] = this.xScale[x];
-            }
-        }
-
-        if (e.keyCode == 37) {
-            // Right arrow
-            for (let x in this.xScale) {
-                const newX =
-                    parseInt(x) + 1 > this.centerIndex ?
-                    -this.centerIndex :
-                    parseInt(x) + 1;
-
-                temp[newX] = this.xScale[x];
-            }
-        }
-
-        this.xScale = temp;
-
-        for (let x in temp) {
-            const scale = this.calcScale(x),
-                scale2 = this.calcScale2(x),
-                leftPos = this.calcPos(x, scale2),
-                zIndex = -Math.abs(x);
-
-            this.updateCards(this.xScale[x], {
-                x: x,
-                scale: scale,
-                leftPos: leftPos,
-                zIndex: zIndex
-            });
-        }
-    }
-
-    calcPos(x, scale) {
-        let formula;
-
-        if (x < 0) {
-            formula = (scale * 100 - this.cardWidth) / 2;
-
-            return formula;
-        } else if (x > 0) {
-            formula = 100 - (scale * 100 + this.cardWidth) / 2;
-
-            return formula;
-        } else {
-            formula = 100 - (scale * 100 + this.cardWidth) / 2;
-
-            return formula;
-        }
-    }
-
-    updateCards(card, data) {
-        if (data.x || data.x == 0) {
-            card.setAttribute("data-x", data.x);
-        }
-
-        if (data.scale || data.scale == 0) {
-            card.style.transform = `scale(${data.scale})`;
-
-            if (data.scale == 0) {
-                card.style.opacity = data.scale;
-            } else {
-                card.style.opacity = 1;
-            }
-        }
-
-        if (data.leftPos) {
-            card.style.left = `${data.leftPos}%`;
-        }
-
-        if (data.zIndex || data.zIndex == 0) {
-            if (data.zIndex == 0) {
-                card.classList.add("highlight");
-            } else {
-                card.classList.remove("highlight");
-            }
-
-            card.style.zIndex = data.zIndex;
-        }
-    }
-
-    calcScale2(x) {
-        let formula;
-
-        if (x <= 0) {
-            formula = 1 - (-1 / 5) * x;
-
-            return formula;
-        } else if (x > 0) {
-            formula = 1 - (1 / 5) * x;
-
-            return formula;
-        }
-    }
-
-    calcScale(x) {
-        const formula = 1 - (1 / 5) * Math.pow(x, 2);
-
-        if (formula <= 0) {
-            return 0;
-        } else {
-            return formula;
-        }
-    }
-
-    checkOrdering(card, x, xDist) {
-        const original = parseInt(card.dataset.x);
-        const rounded = Math.round(xDist);
-        let newX = x;
-
-        if (x !== x + rounded) {
-            if (x + rounded > original) {
-                if (x + rounded > this.centerIndex) {
-                    newX =
-                        x + rounded - 1 - this.centerIndex - rounded + -this.centerIndex;
-                }
-            } else if (x + rounded < original) {
-                if (x + rounded < -this.centerIndex) {
-                    newX =
-                        x + rounded + 1 + this.centerIndex - rounded + this.centerIndex;
-                }
-            }
-
-            this.xScale[newX + rounded] = card;
-        }
-
-        const temp = -Math.abs(newX + rounded);
-
-        this.updateCards(card, { zIndex: temp });
-
-        return newX;
-    }
-
-    moveCards(data) {
-        let xDist;
-
-        if (data != null) {
-            this.container.classList.remove("smooth-return");
-            xDist = data.x / 250;
-        } else {
-            this.container.classList.add("smooth-return");
-            xDist = 0;
-
-            for (let x in this.xScale) {
-                this.updateCards(this.xScale[x], {
-                    x: x,
-                    zIndex: Math.abs(Math.abs(x) - this.centerIndex)
-                });
-            }
-        }
-
-        for (let i = 0; i < this.cards.length; i++) {
-            const x = this.checkOrdering(
-                    this.cards[i],
-                    parseInt(this.cards[i].dataset.x),
-                    xDist
-                ),
-                scale = this.calcScale(x + xDist),
-                scale2 = this.calcScale2(x + xDist),
-                leftPos = this.calcPos(x + xDist, scale2);
-
-            this.updateCards(this.cards[i], {
-                scale: scale,
-                leftPos: leftPos
-            });
-        }
-    }
+function incrementClick1() {
+    updateDisplay1 = ++counterVal1;
 }
+menuRSc.addEventListener('click', () => {
+    if (updateDisplay1 % 2) {
+        document.getElementById('desplegableRSc').style.display = "block";
+        menuRSc.style.transform = "rotate(180deg)"
+        menuRSc.style.animation = "none"
+    } else {
+        document.getElementById('desplegableRSc').style.display = "none";
+        menuRSc.style.transform = "rotate(0deg)"
+        menuRSc.style.animation = "initial"
 
-const carousel = new CardCarousel(cardsContainer);
+    }
+});
+var counterVal3 = 0;
+var updateDisplay3;
+
+function incrementClick3() {
+    updateDisplay3 = ++counterVal3;
+}
+menuEx.addEventListener('click', () => {
+
+    if (updateDisplay3 % 2) {
+        document.getElementById('desplegableEx').style.display = "block";
+        menuEx.style.transform = "rotate(180deg)"
+    } else {
+
+        document.getElementById('desplegableEx').style.display = "none";
+        menuEx.style.transform = "rotate(0deg)"
+    }
+})
