@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+    <link rel="stylesheet" href="./landing/CSS/carousel.css">
     <link rel="stylesheet" href="./landing/CSS/style.css">
     <title>Document</title>
 </head>
@@ -98,59 +98,59 @@
             </div>
             <div class="complementary-buttons">
                 <div id="arrow-left">
-                    <img onclick="plusSlides(1)" src="./landing/favicon/angle-left-solid.svg" alt="Left">
+                    <img src="./landing/favicon/angle-left-solid.svg" alt="Left">
                 </div>
                 <div class="buttons-of-services">
-                    <!-- <div class="mySlides fade">
-                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/Icon-Share_Retail.png" alt="">
+
+                    <div class="carousel-container" id="example">
+                        <div class="carousel">
+                            <div class="carousel-item">
+                                <div class="example-item">
+                                    <img src="./landing/images/ATS_BOTON_PRIME.png" alt="Prime Store">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="example-item">
+                                    <img src="./landing/images/ATS_BOTON_FARMA.png" alt="Pharma Tracker">
+                                </div>
+                            </div>
+
+
+                            <div class="carousel-item">
+                                <div class="example-item">
+                                    <img src="./landing/images/ATS_BOTON_POV.png" alt="POV">
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="example-item">
+                                    <img src="./landing/images/ATS_BOTONES_Scan2GO.png" alt="Scan2GO">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="example-item">
+                                    <img src="./landing/images/ATS_BOTON_Consumer.png" alt="Consumer Insights">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="example-item">
+                                    <img src="./landing/images/ATS_BOTONES_Money-Market.png" alt="Money Market">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="example-item">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="example-item">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="mySlides fade">
-                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/Icon-Share_ACV.png" alt="">
-                    </div>
-
-                    <div class="mySlides fade">
-                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/cuadro amarillo.png" alt="">
-                    </div>
-
-                    <div class="mySlides mySlidess fade">
-                        <img style="width: 20%; height: 80%;" src="./landing/images/ATS_Logo-Execution.png" alt="">
-                    </div>
-
-                    <div class="mySlides mySlidess fade">
-                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/ATS_Logo-Atenas.png" alt="">
-                    </div>
-
-                    <div class="mySlides mySlidess fade">
-
-                        <img style="width: 20%; height: 80%;" src="./landing/images/ATS_Logo-Retail-Scanning.png" alt="">
-                    </div>
-                    <div class="mySlides fade">
-                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/Icon-Share_Retail.png" alt="">
-                    </div>
-
-                    <div class="mySlides fade">
-                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/Icon-Share_ACV.png" alt="">
-                    </div>
-
-                    <div class="mySlides fade">
-                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/cuadro amarillo.png" alt="">
-                    </div>
-
-                    <div class="mySlides mySlidess fade">
-                        <img style="width: 20%; height: 80%;" src="./landing/images/ATS_Logo-Execution.png" alt="">
-                    </div>
-
-                    <div class="mySlides mySlidess fade">
-                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/ATS_Logo-Atenas.png" alt="">
-                    </div>
-
-                    <div class="mySlides mySlidess fade">
-
-                        <img style="width: 20%; height: 80%;" src="./landing/images/ATS_Logo-Retail-Scanning.png" alt="">
-                    </div> -->
                 </div>
-                <div onclick="plusSlides(-1)" id="arrow-right">
+                <div id="arrow-right">
                     <img src="./landing/favicon/angle-right-solid.svg" alt="Right">
                 </div>
             </div>
@@ -158,48 +158,61 @@
     </main>
     <script src="./landing/JS/index.js"></script>
     <script src="./landing/JS/carousel.js"></script>
-
-    <!-- <script>
-        var slideIndex = 1;
-        showSlides(slideIndex);
-
-        // Next/previous controls
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-
-
-        function showSlides(n) {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            if (n > slides.length) {
-                slideIndex = 1
+    <script src="./landing/JS/mycarousel.js"></script>
+    <script>
+        let settings = {
+            id: "example",
+            rotation: {
+                amount: 1, // How many elements it moves per rotation
+                timingFunction: "ease-out", // Timing function of the movement
+                duration: 3500, // How long the movement takes
+            },
+            buttons: {
+                hide: false, // Whether to hide the buttons
+                disableForSingle: false, // Disables the buttons when there is only one element in the carousel
+            },
+            display: {
+                number: 2, // Number of elements to display at a time,
+                duration: 1000, // If specified then the carousel will rotate every time that number of milliseconds has elapsed
+                startOffset: 0, // Waits this long before auto rotating,
+                direction: "left", // The direction to move the carousel either left or right
+            },
+            display: {
+                number: 3, // Number of elements to display at a time,
+                duration: 1000, // If specified then the carousel will rotate every time that number of milliseconds has elapsed
+                startOffset: 0, // Waits this long before auto rotating,
+                direction: "left", // The direction to move the carousel either left or right
+            },
+            display: {
+                number: 4, // Number of elements to display at a time,
+                duration: 1000, // If specified then the carousel will rotate every time that number of milliseconds has elapsed
+                startOffset: 0, // Waits this long before auto rotating,
+                direction: "left", // The direction to move the carousel either left or right
+            },
+            display: {
+                number: 5, // Number of elements to display at a time,
+                duration: 1000, // If specified then the carousel will rotate every time that number of milliseconds has elapsed
+                startOffset: 0, // Waits this long before auto rotating,
+                direction: "left", // The direction to move the carousel either left or right
+            },
+            display: {
+                number: 6, // Number of elements to display at a time,
+                duration: 1000, // If specified then the carousel will rotate every time that number of milliseconds has elapsed
+                startOffset: 0, // Waits this long before auto rotating,
+                direction: "left", // The direction to move the carousel either left or right
+            },
+            class: {
+                itemClassName: "carousel-item", // Used if you have altered the class for an item
+            },
+            fit: {
+                fitToParent: false,
+                fitToChildren: true,
+                responsive: true,
             }
-            if (n < 1) {
-                slideIndex = slides.length
-            }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
+        };
 
-            slides[slideIndex - 1].style.display = "block";
-        }
-
-        function showSlides() {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {
-                slideIndex = 1
-            }
-            slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 2000); // Change image every 2 seconds
-        }
-    </script> -->
+        let example = new Carousel(settings);
+    </script>
 
 </body>
 
