@@ -253,7 +253,7 @@ class Carousel {
         if (this._fitToParent) {
             for (let i = 0; i < this._totalItems; i++) {
                 this._items[i].firstElementChild.style.width =
-                    this._container.clientWidth / this._displayNo + "px";
+                    this._container.clientWidth / this._displayNo / 2 + "%";
             }
         }
     }
@@ -347,7 +347,7 @@ class Carousel {
 
                 document.documentElement.style.setProperty(
                     "--moveAmount",
-                    "-" + moveAmount + "px"
+                    "-" + moveAmount * 1.2 + "%"
                 );
 
                 let diff = this._totalItems - noSteps;
@@ -408,7 +408,7 @@ class Carousel {
                 }
                 document.documentElement.style.setProperty(
                     "--moveAmount",
-                    "-" + moveAmount + "px"
+                    "-" + moveAmount / 2 + "px"
                 );
 
                 for (let i = 0; i < this._items.length; i++) {

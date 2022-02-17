@@ -1,5 +1,5 @@
 :root {
-    --moveAmount: -22px;
+    --moveAmount: -140px;
     --timingFunction: "cubic-bezier(1, 0.66, 0, 0.19)";
     --duration: .5s;
 }
@@ -66,14 +66,7 @@
 }
 
 @keyframes startOffset {
-    0% {
-        transform: translateX(var(--moveAmount));
-        -webkit-transform: translateX(var(--moveAmount));
-    }
-    100% {
-        transform: translateX(0);
-        -webkit-transform: translateX(0);
-    }
+    
 } */
 
 .example-item {
