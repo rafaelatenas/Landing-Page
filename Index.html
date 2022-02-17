@@ -95,7 +95,7 @@
                     <img onclick="plusSlides(1)" src="./landing/favicon/angle-left-solid.svg" alt="Left">
                 </div>
                 <div class="buttons-of-services">
-                    <div class="mySlides fade">
+                    <!-- <div class="mySlides fade">
                         <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/Icon-Share_Retail.png" alt="">
                     </div>
 
@@ -144,7 +144,7 @@
                     <div class="mySlides mySlidess fade">
 
                         <img style="width: 20%; height: 80%;" src="./landing/images/ATS_Logo-Retail-Scanning.png" alt="">
-                    </div>
+                    </div> -->
                 </div>
                 <div onclick="plusSlides(-1)" id="arrow-right">
                     <img src="./landing/favicon/angle-right-solid.svg" alt="Right">
@@ -154,7 +154,7 @@
     </main>
     <script src="./landing/JS/index.js"></script>
     <script src="./landing/JS/carousel.js"></script>
-    <script>
+    <!-- <script>
         var slideIndex = 1;
         showSlides(slideIndex);
 
@@ -174,7 +174,7 @@
             if (n < 1) {
                 slideIndex = slides.length
             }
-            for (i = 0; i < slides.length / 4; i++) {
+            for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
 
@@ -184,7 +184,7 @@
         function showSlides() {
             var i;
             var slides = document.getElementsByClassName("mySlides");
-            for (i = 0; i < slides.length / 4; i++) {
+            for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
             slideIndex++;
@@ -194,7 +194,7 @@
             slides[slideIndex - 1].style.display = "block";
             setTimeout(showSlides, 2000); // Change image every 2 seconds
         }
-    </script>
+    </script> -->
 
 </body>
 
