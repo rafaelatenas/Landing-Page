@@ -1,0 +1,87 @@
+:root {
+    --moveAmount: -22px;
+    --timingFunction: "cubic-bezier(1, 0.66, 0, 0.19)";
+    --duration: .5s;
+}
+
+.carousel-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-container * {
+    box-sizing: border-box;
+}
+
+.carousel {
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item {
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    width: 10%;
+    height: 100%;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    position: relative;
+    z-index: 900;
+}
+
+.slide {
+    animation-name: slide;
+    animation-duration: var(--duration);
+    animation-timing-function: var(--timingFunction);
+    z-index: 900;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+    }
+    100% {
+        transform: translateX(var(--moveAmount));
+        -webkit-transform: translateX(var(--moveAmount));
+    }
+}
+
+
+/* .startOffset {
+    animation-name: startOffset;
+    animation-duration: var(--duration);
+    animation-timing-function: var(--timingFunction);
+    z-index: 900;
+}
+
+@keyframes startOffset {
+    0% {
+        transform: translateX(var(--moveAmount));
+        -webkit-transform: translateX(var(--moveAmount));
+    }
+    100% {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+    }
+} */
+
+.example-item {
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dotted black;
+    width: 100%;
+    height: 100%;
+}
