@@ -38,14 +38,14 @@
                     <div class="image-container">
                         <img src="./landing/images/ATS_Logo-Home-Pantry.png" alt="Home Pantry">
                     </div>
-                    <img onclick="incrementClick2()" id="menuHP" src="./landing/favicon/angle-down-solid.svg" alt="Show Menu">
+                    <img class="heart" onclick="incrementClick2()" id="menuHP" src="./landing/favicon/angle-down-solid.svg" alt="Show Menu">
                 </div>
 
                 <div class="card" id="execution">
                     <div class="image-container">
                         <img src="./landing/images/ATS_Logo-Execution.png" alt="Execution">
                     </div>
-                    <img onclick="incrementClick3()" id="menuEx" src="./landing/favicon/angle-down-solid.svg" alt="Show Menu">
+                    <img class="heart" onclick="incrementClick3()" id="menuEx" src="./landing/favicon/angle-down-solid.svg" alt="Show Menu">
 
                 </div>
             </article>
@@ -92,11 +92,61 @@
             </div>
             <div class="complementary-buttons">
                 <div id="arrow-left">
-                    <img src="./landing/favicon/angle-left-solid.svg" alt="Left">
+                    <img onclick="plusSlides(1)" src="./landing/favicon/angle-left-solid.svg" alt="Left">
                 </div>
                 <div class="buttons-of-services">
+                    <div class="mySlides fade">
+                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/Icon-Share_Retail.png" alt="">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/Icon-Share_ACV.png" alt="">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/cuadro amarillo.png" alt="">
+                    </div>
+
+                    <!---- segundo--->
+                    <div class="mySlides mySlidess fade">
+                        <img style="width: 20%; height: 80%;" src="./landing/images/ATS_Logo-Execution.png" alt="">
+                    </div>
+
+                    <div class="mySlides mySlidess fade">
+                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/ATS_Logo-Atenas.png" alt="">
+                    </div>
+
+                    <div class="mySlides mySlidess fade">
+
+                        <img style="width: 20%; height: 80%;" src="./landing/images/ATS_Logo-Retail-Scanning.png" alt="">
+                    </div>
+                    <div class="mySlides fade">
+                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/Icon-Share_Retail.png" alt="">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/Icon-Share_ACV.png" alt="">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/cuadro amarillo.png" alt="">
+                    </div>
+
+                    <!---- segundo--->
+                    <div class="mySlides mySlidess fade">
+                        <img style="width: 20%; height: 80%;" src="./landing/images/ATS_Logo-Execution.png" alt="">
+                    </div>
+
+                    <div class="mySlides mySlidess fade">
+                        <img style="width: 20%; height: 80%;" src="../Retail-Scanning/landing/Images/ATS_Logo-Atenas.png" alt="">
+                    </div>
+
+                    <div class="mySlides mySlidess fade">
+
+                        <img style="width: 20%; height: 80%;" src="./landing/images/ATS_Logo-Retail-Scanning.png" alt="">
+                    </div>
                 </div>
-                <div id="arrow-right">
+                <div onclick="plusSlides(-1)" id="arrow-right">
                     <img src="./landing/favicon/angle-right-solid.svg" alt="Right">
                 </div>
             </div>
@@ -104,6 +154,47 @@
     </main>
     <script src="./landing/JS/index.js"></script>
     <script src="./landing/JS/carousel.js"></script>
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length / 4; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length / 4; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
 
 </body>
 

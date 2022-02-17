@@ -31,9 +31,13 @@ menuHP.addEventListener('click', () => {
     if (updateDisplay2 % 2) {
         document.getElementById('desplegableHP').style.display = "block";
         menuHP.style.transform = "rotate(180deg)"
+        menuHP.style.animationName = "none"
+
     } else {
         document.getElementById('desplegableHP').style.display = "none"
         menuHP.style.transform = "rotate(0deg)"
+        menuHP.style.animationName = "pulse"
+
     }
 });
 var counterVal1 = 0;
@@ -46,11 +50,11 @@ menuRSc.addEventListener('click', () => {
     if (updateDisplay1 % 2) {
         document.getElementById('desplegableRSc').style.display = "block";
         menuRSc.style.transform = "rotate(180deg)"
-        menuRSc.style.animation = "none"
+        menuRSc.style.animationName = "none"
     } else {
         document.getElementById('desplegableRSc').style.display = "none";
         menuRSc.style.transform = "rotate(0deg)"
-        menuRSc.style.animation = "initial"
+        menuRSc.style.animationName = "pulse"
 
     }
 });
@@ -65,9 +69,13 @@ menuEx.addEventListener('click', () => {
     if (updateDisplay3 % 2) {
         document.getElementById('desplegableEx').style.display = "block";
         menuEx.style.transform = "rotate(180deg)"
+        menuEx.style.animationName = "none"
+
     } else {
 
         document.getElementById('desplegableEx').style.display = "none";
         menuEx.style.transform = "rotate(0deg)"
+        menuEx.style.animationName = "pulse"
+
     }
 })
