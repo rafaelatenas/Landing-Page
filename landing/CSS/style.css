@@ -344,6 +344,9 @@ main {
     #desplegableEx .content-desplegable {
         height: 70%;
     }
+    #desplegableCI .content-desplegable {
+        height: 70%;
+    }
     #desplegableEx {
         left: 53%;
         height: 20%;
