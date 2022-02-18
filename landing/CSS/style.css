@@ -82,7 +82,8 @@ main {
     }
     #menuHP,
     #menuEx,
-    #menuRSc {
+    #menuRSc,
+    #menuCI {
         display: none;
     }
     /*End to Carousel*/

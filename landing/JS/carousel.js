@@ -99,6 +99,7 @@ if (window.matchMedia("(max-width: 992px)").matches) {
 
             // Carousel data
             this.centerIndex = (this.cards.length - 1) / 2;
+            console.log(this.centerIndex)
             this.cardWidth =
                 (this.cards[0].offsetWidth / this.container.offsetWidth) * 100;
             this.xScale = {};
