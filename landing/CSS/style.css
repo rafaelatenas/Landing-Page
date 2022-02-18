@@ -228,10 +228,6 @@ main {
         width: 90%;
         height: 100%;
         position: relative;
-        margin: auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
     }
     #arrow-left,
     #arrow-right {
@@ -249,7 +245,8 @@ main {
     }
     #menuHP,
     #menuEx,
-    #menuRSc {
+    #menuRSc,
+    #menuCI {
         width: 20%;
         height: 15%;
     }
@@ -305,7 +302,8 @@ main {
         height: 20%;
     }
     #desplegableHP .container-desplegable,
-    #desplegableEx .container-desplegable {
+    #desplegableEx .container-desplegable,
+    #desplegableCI .container-desplegable {
         height: 70%;
     }
     #desplegableEx .content-desplegable {

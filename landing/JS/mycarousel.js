@@ -347,7 +347,7 @@ class Carousel {
 
                 document.documentElement.style.setProperty(
                     "--moveAmount",
-                    "-" + moveAmount * 1.2 + "%"
+                    "-" + moveAmount * 1.25 + "%"
                 );
 
                 let diff = this._totalItems - noSteps;
@@ -389,6 +389,7 @@ class Carousel {
                 resolve("done");
             }
         });
+
     }
 
     _moveCarouselRight(noSteps) {
@@ -434,7 +435,7 @@ class Carousel {
                 this._animationTimeout = setTimeout(() => {
                     for (let j = 0; j < this._items.length; j++) {
                         this._items[j].classList.remove("slide");
-                        this._items[j].classList.remove("startOffset");
+                        // this._items[j].classList.remove("startOffset");
                     }
 
                     // Remove the extra elements

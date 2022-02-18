@@ -48,6 +48,13 @@
                     <img class="heart" onclick="incrementClick3()" id="menuEx" src="./landing/favicon/angle-down-solid.svg" alt="Show Menu">
 
                 </div>
+                <div class="card" id="consumer_insights">
+                    <div class="image-container">
+                        <img src="./landing/images/ATS_Logo-Execution.png" alt="Consumer Insights">
+                    </div>
+                    <img class="heart" onclick="incrementClick3()" id="menuCI" src="./landing/favicon/angle-down-solid.svg" alt="Show Menu">
+
+                </div>
             </article>
 
             <aside style="display: none;" class="deplegable" id="desplegableRSc">
@@ -90,7 +97,16 @@
                     </div>
                 </div>
             </aside>
-
+            <aside style="display: none;" class="deplegable" id="desplegableCI">
+                <div class="container-desplegable">
+                    <div class="content-desplegable">
+                        <p class="efect">Censo</p>
+                        <hr>
+                        <p class="efect">POV</p>
+                        <hr>
+                    </div>
+                </div>
+            </aside>
         </section>
         <footer>
             <div class="bar-user">
@@ -197,6 +213,12 @@
             },
             display: {
                 number: 6, // Number of elements to display at a time,
+                duration: 1000, // If specified then the carousel will rotate every time that number of milliseconds has elapsed
+                startOffset: 0, // Waits this long before auto rotating,
+                direction: "left", // The direction to move the carousel either left or right
+            },
+            display: {
+                number: 7, // Number of elements to display at a time,
                 duration: 1000, // If specified then the carousel will rotate every time that number of milliseconds has elapsed
                 startOffset: 0, // Waits this long before auto rotating,
                 direction: "left", // The direction to move the carousel either left or right
