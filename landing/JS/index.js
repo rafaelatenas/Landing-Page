@@ -71,6 +71,7 @@ var updateDisplay3;
 function incrementClick3() {
     updateDisplay3 = ++counterVal3;
 }
+
 menuEx.addEventListener('click', () => {
 
     if (updateDisplay3 % 2) {

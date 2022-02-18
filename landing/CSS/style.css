@@ -32,8 +32,8 @@ main {
     }
     .card-carousel {
         --card-width: 80%;
-        --card-max-width: 20%;
-        --card-height: 150px;
+        --card-max-width: 40%;
+        --card-height: 250px;
         --carousel-min-width: 600px;
         z-index: 1;
         position: relative;
@@ -93,17 +93,23 @@ main {
         height: 20%;
     }
     .components-header {
-        width: 90%;
+        width: 100%;
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     .logo-atenas {
-        width: 20%;
-        height: 55%;
-        position: relative;
-        left: 5%;
+        display: none;
+    }
+    .Logo-atenas {
+        display: block;
+        width: 50%;
+        height: 80%;
+        min-width: 180px;
+        max-width: 400px;
+        max-height: 190px;
+        min-height: 120px;
     }
     .content-user {
         display: none;
@@ -138,8 +144,8 @@ main {
     .back,
     .home,
     .config {
-        width: 10%;
-        height: 80%;
+        width: 45px;
+        height: 45px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -147,8 +153,13 @@ main {
     .back svg,
     .config svg,
     .home svg {
-        width: 100%;
-        height: 80%;
+        width: 65%;
+        height: 65%;
+        fill: #e88100
+    }
+    .config svg {
+        width: 50%;
+        height: 50%;
     }
     .home svg path {
         width: 100%;
@@ -175,6 +186,7 @@ main {
         height: 60%;
         position: relative;
         left: 5%;
+        display: block;
     }
     .content-user {
         width: 10%;
