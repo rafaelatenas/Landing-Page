@@ -158,7 +158,6 @@ if (window.matchMedia("(max-width: 992px)").matches) {
                         parseInt(x) - 1 < -this.centerIndex ?
                         this.centerIndex :
                         parseInt(x) - 1;
-
                     temp[newX] = this.xScale[x];
                 }
             }
@@ -197,6 +196,7 @@ if (window.matchMedia("(max-width: 992px)").matches) {
 
             if (x < 0) {
                 formula = (scale * 100 - this.cardWidth) / 2;
+
 
                 return formula;
             } else if (x > 0) {
@@ -274,6 +274,7 @@ if (window.matchMedia("(max-width: 992px)").matches) {
                     if (x + rounded > this.centerIndex) {
                         newX =
                             x + rounded - 1 - this.centerIndex - rounded + -this.centerIndex;
+
                     }
                 } else if (x + rounded < original) {
                     if (x + rounded < -this.centerIndex) {

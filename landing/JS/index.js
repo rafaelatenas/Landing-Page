@@ -17,6 +17,7 @@ Execution.addEventListener('click', () => {
 var menuHP = document.getElementById('menuHP');
 var menuRSc = document.getElementById('menuRSc');
 var menuEx = document.getElementById('menuEx');
+var menuCI = document.getElementById('menuCI');
 
 
 var counterVal2 = 0;
@@ -27,9 +28,8 @@ function incrementClick2() {
 }
 
 menuHP.addEventListener('click', () => {
-    console.log('clcik')
     if (updateDisplay2 % 2) {
-        document.getElementById('desplegableHP').style.display = "block";
+        blockHP.style.display = "block";
         menuHP.style.transform = "rotate(180deg)"
         menuHP.style.animationName = "none"
 
@@ -42,15 +42,22 @@ menuHP.addEventListener('click', () => {
 });
 var counterVal1 = 0;
 var updateDisplay1;
+var blockRSc = document.getElementById('desplegableRSc');
+var blockEx = document.getElementById('desplegableEx');
+var blockCI = document.getElementById('desplegableCI');
+var blockHP = document.getElementById('desplegableHP');
 
 function incrementClick1() {
     updateDisplay1 = ++counterVal1;
 }
+
+
 menuRSc.addEventListener('click', () => {
     if (updateDisplay1 % 2) {
-        document.getElementById('desplegableRSc').style.display = "block";
+        blockRSc.style.display = "block";
         menuRSc.style.transform = "rotate(180deg)"
         menuRSc.style.animationName = "none"
+
     } else {
         document.getElementById('desplegableRSc').style.display = "none";
         menuRSc.style.transform = "rotate(0deg)"
@@ -67,7 +74,7 @@ function incrementClick3() {
 menuEx.addEventListener('click', () => {
 
     if (updateDisplay3 % 2) {
-        document.getElementById('desplegableEx').style.display = "block";
+        blockEx.style.display = "block";
         menuEx.style.transform = "rotate(180deg)"
         menuEx.style.animationName = "none"
 
@@ -76,6 +83,27 @@ menuEx.addEventListener('click', () => {
         document.getElementById('desplegableEx').style.display = "none";
         menuEx.style.transform = "rotate(0deg)"
         menuEx.style.animationName = "pulse"
+
+    }
+})
+var counterVal4 = 0;
+var updateDisplay4;
+
+function incrementClick4() {
+    updateDisplay4 = ++counterVal4;
+}
+menuCI.addEventListener('click', () => {
+
+    if (updateDisplay4 % 2) {
+        blockCI.style.display = "block";
+        menuCI.style.transform = "rotate(180deg)"
+        menuCI.style.animationName = "none"
+
+    } else {
+
+        document.getElementById('desplegableCI').style.display = "none";
+        menuCI.style.transform = "rotate(0deg)"
+        menuCI.style.animationName = "pulse"
 
     }
 })
