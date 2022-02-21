@@ -330,4 +330,21 @@ if (window.matchMedia("(max-width: 992px)").matches) {
     }
 
     const carousel = new CardCarousel(cardsContainer);
+
+    //--- End to Carousel ---//
+
+    //-- Despluegie de barra de usuario movil --//
+    var cambio = false;
+    const bar_user = document.getElementById('barUser');
+    bar_user.addEventListener("click", function() {
+        if (!cambio) {
+
+            document.querySelector('footer').style.top = "0%";
+            cambio = true;
+        } else {
+            document.querySelector('footer').style.top = "10%";
+            cambio = false;
+        }
+    });
+
 }
