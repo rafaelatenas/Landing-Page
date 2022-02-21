@@ -20,7 +20,7 @@ class Carousel {
         let defaults = {
             rotation: {
                 amount: 1, // How many elements it moves per rotation
-                timingFunction: "ease-out", // Timing function of the movement
+                timingFunction: "Fast Out, Linear In", // Timing function of the movement
                 duration: 500, // How long the movement takes
             },
             buttons: {
